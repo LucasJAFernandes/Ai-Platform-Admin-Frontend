@@ -1,8 +1,10 @@
 # AI Platform Admin — Frontend
 
-A modern admin dashboard for managing a multi-tenant AI platform — tenants, billing, analytics, AI usage, system health and support tickets — built as a fully functional front-end demo powered by mock data.
+A responsive admin dashboard for managing a multi-tenant AI platform — tenants, billing, analytics, AI usage, system health and support tickets — built as a fully functional front-end demo powered by mock data.
 
 > **Note:** this is a UI-focused project. All data comes from local mocks, so it runs out of the box with **no backend and no environment variables**.
+
+[Vercel preview](https://ai-platform-admin-frontend.vercel.app/)
 
 ## ✨ Features
 
@@ -68,3 +70,25 @@ src/
 ├── mocks/                # Mock data powering the demo
 └── hooks/                # Reusable React hooks
 ```
+
+## 📸 Screenshots
+
+### Dashboard
+
+![Dashboard](./public/screenshots/image1.png)
+
+### Tenant Overview
+
+![Tenant Overview](./public/screenshots/image2.png)
+
+### Analytics
+
+![Analytics](./public/screenshots/image3.png)
+
+### Tenant Creation Wizard
+
+![Tenant Creation Wizard](./public/screenshots/image4.png)
+
+### System Health
+
+![System Health](./public/screenshots/image5.png)
