@@ -73,19 +73,19 @@ src/
 
 ## 📸 Screenshots
 
-### Dashboard
+### Login page
 
 ![Dashboard](./public/screenshots/image1.png)
 
-### Tenant Overview
+### Dashboard
 
 ![Tenant Overview](./public/screenshots/image2.png)
 
-### Analytics
+### Dashboard responsive
 
 ![Analytics](./public/screenshots/image3.png)
 
-### Tenant Creation Wizard
+### Sidebar subitems
 
 ![Tenant Creation Wizard](./public/screenshots/image4.png)
 
