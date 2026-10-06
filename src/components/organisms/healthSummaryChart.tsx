@@ -20,6 +20,7 @@ export function HealthSummaryChart({ data }: HealthSummaryChartProps) {
     label: string;
     value: number;
     color: string;
+    pct: number;
   } | null>(null);
 
   if (!data) {
