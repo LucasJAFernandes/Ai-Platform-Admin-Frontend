@@ -19,18 +19,20 @@ export function TokenUsageByTenant({
   }
 
   return (
-    <div className={cn('space-y-4', className)}>
+    <div className={cn('min-w-0 space-y-3 sm:space-y-4', className)}>
       {data.map((tenant) => (
-        <div key={tenant.name} className="space-y-2">
-          <div className="flex items-center justify-between text-sm">
-            <span className="text-zinc-800 dark:text-white font-medium">
+        <div key={tenant.name} className="min-w-0 space-y-2">
+          <div className="flex flex-col items-start gap-1 text-sm sm:flex-row sm:items-center sm:justify-between sm:gap-3">
+            <span className="min-w-0 max-w-full break-words font-medium text-zinc-800 dark:text-white">
               {tenant.name}
             </span>
-            <span className="text-gray-600 dark:text-gray-400">
-              {tenant.usage.toLocaleString()} tokens
+            <span className="flex max-w-full flex-wrap items-center gap-x-1 text-xs text-gray-600 dark:text-gray-400 sm:text-sm">
+              <span className="whitespace-nowrap">
+                {tenant.usage.toLocaleString()} tokens
+              </span>
               <span
                 className={cn(
-                  'ml-2 text-xs',
+                  'whitespace-nowrap text-xs',
                   tenant.growth > 0
                     ? 'text-green-500'
                     : tenant.growth < 0

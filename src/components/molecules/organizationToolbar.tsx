@@ -49,22 +49,22 @@ export default function OrganizationToolbar({
   sortByOptions,
 }: Props) {
   return (
-    <div className="flex flex-col sm:flex-row sm:items-center justify-between p-6 border-b border-gray-200 dark:border-zinc-700 gap-4">
-      <div className="flex items-center gap-3">
-        <h2 className="text-xl dark:text-zinc-300 font-semibold text-gray-900">
+    <div className="flex flex-col gap-4 border-b border-gray-200 p-4 dark:border-zinc-700 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+      <div className="sm:flex min-w-0 items-center gap-3">
+        <h2 className="min-w-0 text-lg font-semibold text-gray-900 dark:text-zinc-300 sm:text-xl">
           Organizations List
         </h2>
         {totalItems > 0 && (
-          <div className="inline-flex items-center px-2 py-1 border rounded-md dark:border-zinc-700 text-sm text-gray-700 dark:text-gray-200">
+          <div className="inline-flex shrink-0 items-center rounded-md border px-2 py-1 text-sm text-gray-700 dark:border-zinc-700 dark:text-gray-200">
             {totalItems} total
           </div>
         )}
       </div>
 
-      <div className="flex items-center gap-2 w-full sm:w-auto">
+      <div className="sm:flexw-full min-w-0 items-center gap-2 sm:w-auto">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline" size="sm" className="shrink-0 relative">
+            <Button variant="outline" size="sm" className="relative shrink-0  mb-2 sm:mb-0 ">
               <Filter className="w-4 h-4 mr-2" />
               Filter
               {activeFiltersCount > 0 && (
@@ -242,14 +242,14 @@ export default function OrganizationToolbar({
           </DropdownMenuContent>
         </DropdownMenu>
 
-        <div className="relative flex-1 sm:flex-initial">
+        <div className="relative min-w-0 flex-1 sm:flex-initial">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
           <input
             type="text"
             placeholder="Search Organizations..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg w-full sm:w-64 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-zinc-700 dark:border-zinc-600 dark:text-white"
+            className="w-full rounded-lg border border-gray-300 py-2 pl-10 pr-4 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-zinc-600 dark:bg-zinc-700 dark:text-white sm:w-64"
           />
         </div>
       </div>

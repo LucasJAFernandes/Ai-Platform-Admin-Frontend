@@ -25,25 +25,25 @@ export function RecentInvoices({
         return (
           <div
             key={invoice.id}
-            className="flex items-center justify-between p-4 rounded-xl bg-zinc-300 dark:bg-white/5 hover:bg-zinc-400 dark:hover:bg-white/10 transition-colors"
+            className="flex flex-col gap-3 rounded-xl bg-zinc-300 p-3 transition-colors hover:bg-zinc-400 dark:bg-white/5 dark:hover:bg-white/10 sm:flex-row sm:items-center sm:justify-between sm:p-4"
           >
-            <div className="flex-1">
-              <div className="flex items-center gap-2">
-                <p className="text-zinc-900 dark:text-white font-medium">
+            <div className="min-w-0 flex-1">
+              <div className="flex flex-wrap items-center gap-2">
+                <p className="break-all font-medium text-zinc-900 dark:text-white">
                   {invoice.invoice_number}
                 </p>
                 <Badge
-                  className={`dark:bg-zinc-900 bg-zinc-200 ${config.color} border-0`}
+                  className={`shrink-0 border-0 bg-zinc-200 dark:bg-zinc-900 ${config.color}`}
                 >
                   <StatusIcon className="w-3 h-3 mr-1" />
                   {config.label}
                 </Badge>
               </div>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
+              <p className="break-words text-sm text-gray-500 dark:text-gray-400">
                 {invoice.tenant_name} • Due {formatDate(invoice.due_date)}
               </p>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex w-full items-center justify-between gap-4 sm:w-auto sm:justify-end">
               <div className="text-right">
                 <p className="text-lg font-semibold text-zinc-900 dark:text-white">
                   ${invoice.amount.toLocaleString()}

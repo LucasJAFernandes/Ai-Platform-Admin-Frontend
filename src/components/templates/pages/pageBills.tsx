@@ -70,26 +70,26 @@ export default function Billing() {
     .filter((i) => i.is_overdue)
     .reduce((sum, i) => sum + i.amount, 0);
   return (
-    <div className="min-h-screen p-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="md:flex items-center justify-between mb-6">
-          <div>
-            <h1 className="text-3xl font-bold text-zinc-900 dark:text-zinc-100">
+    <div className="min-h-screen p-4 sm:p-6">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-6 flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
+          <div className="min-w-0">
+            <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 sm:text-3xl">
               Billing Management
             </h1>
-            <p className="text-gray-400 mt-1">
+            <p className="mt-1 text-sm text-gray-400 sm:text-base">
               Manage subscriptions, invoices, and payment methods
             </p>
           </div>
-          <div className="flex mt:mt-2 mt-0 items-center gap-3">
+          <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center">
             <Button
               variant="outline"
-              className="border-black dark:border-zinc-600 text-zinc-900 dark:text-zinc-100"
+              className="w-full border-black text-zinc-900 dark:border-zinc-600 dark:text-zinc-100 sm:w-auto"
             >
               <RefreshCw className={`w-4 h-4 mr-2`} />
               Refresh
             </Button>
-            <Button className="bg-blue-500 hover:bg-blue-600">
+            <Button className="w-full bg-blue-500 hover:bg-blue-600 sm:w-auto">
               <Receipt className="w-4 h-4 mr-2" />
               Generate Invoice
             </Button>
@@ -148,7 +148,7 @@ export default function Billing() {
           />
         )}
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           <div className="group bg-zinc-200 rounded-xl dark:bg-zinc-800 shadow-sm hover:shadow-md border border-gray-200 dark:border-zinc-700">
             <CardHeader>
               <div className="flex items-center justify-between">

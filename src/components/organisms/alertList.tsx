@@ -24,38 +24,37 @@ export function AlertList({
         return (
           <div
             key={alert.id}
-            className={`p-4 rounded-xl bg-zinc-300 dark:bg-white/5 transition-all hover:bg-zinc-400 dark:hover:bg-white/10 
-                            }`}
+            className="rounded-xl bg-zinc-300 p-3 transition-all hover:bg-zinc-400 dark:bg-white/5 dark:hover:bg-white/10 sm:p-4"
           >
             <div className="flex items-start gap-3">
               <div
-                className={`p-2 rounded-lg dark:bg-zinc-900 bg-zinc-200 mt-1`}
+                className="mt-1 shrink-0 rounded-lg bg-zinc-200 p-2 dark:bg-zinc-900"
               >
                 <Icon className={`w-4 h-4 ${config.color}`} />
               </div>
-              <div className="flex-1">
-                <div className="flex items-center justify-between">
-                  <p className="text-zinc-900 dark:text-white font-medium">
+              <div className="min-w-0 flex-1">
+                <div className="flex flex-wrap items-start justify-between gap-2">
+                  <p className="min-w-0 break-words font-medium text-zinc-900 dark:text-white">
                     {alert.title}
                   </p>
 
                   <Badge
-                    className={`dark:bg-zinc-900 bg-zinc-200 ${config.color} border-0 text-xs`}
+                    className={`shrink-0 border-0 bg-zinc-200 text-xs dark:bg-zinc-900 ${config.color}`}
                   >
                     {alert.severity}
                   </Badge>
                 </div>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                <p className="mt-1 break-words text-sm text-gray-500 dark:text-gray-400">
                   {alert.message}
                 </p>
-                <div className="flex items-center justify-between mt-2">
-                  <p className="text-xs text-gray-500">
+                <div className="mt-2 flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between">
+                  <p className="break-words text-xs text-gray-500">
                     {alert.tenant_name} • {formatDate(alert.created_at)}
                   </p>
                   {!alert.is_read && (
                     <Badge
                       variant="outline"
-                      className="text-orange-500 border-orange-500 text-xs"
+                      className="border-orange-500 text-xs text-orange-500"
                     >
                       New
                     </Badge>

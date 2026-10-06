@@ -97,20 +97,20 @@ export default function Support() {
   const filteredTickets = mockTicketsResponse.tickets;
 
   return (
-    <div className="min-h-screen p-6 bg-white dark:bg-zinc-900">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex items-center justify-between mb-2">
-          <div>
-            <h1 className="text-3xl font-bold text-zinc-900 dark:text-zinc-100">
+    <div className="min-h-screen bg-white p-4 dark:bg-zinc-900 sm:p-6">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-4 flex flex-col items-start justify-between gap-4 sm:mb-2 sm:flex-row sm:items-center">
+          <div className="min-w-0">
+            <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 sm:text-3xl">
               Support Center
             </h1>
-            <p className="text-gray-500 dark:text-gray-400 mt-1">
+            <p className="mt-1 text-sm text-gray-500 dark:text-gray-400 sm:text-base">
               Manage support tickets with AI-assisted responses
             </p>
           </div>
           <Button
             variant="outline"
-            className="border-gray-300 dark:border-white/10 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/5"
+            className="w-full border-gray-300 text-gray-700 dark:border-white/10 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/5 sm:w-auto"
           >
             <RefreshCw className={`w-4 h-4 mr-2`} />
             Refresh
@@ -118,8 +118,8 @@ export default function Support() {
         </div>
 
         {mockTicketsResponse.stats && <StatsCards stats={statsData} />}
-        <div className="grid md:grid-cols-12 gap-6 mt-5">
-          <div className="col-span-10 md:col-span-4 w-full overflow-auto group bg-gray-50 dark:bg-zinc-800 rounded-xl shadow-sm hover:shadow-md border border-gray-200 dark:border-zinc-700 hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300 flex flex-col">
+        <div className="mt-5 grid grid-cols-1 gap-6 md:grid-cols-12">
+          <div className="group col-span-1 flex w-full flex-col overflow-auto rounded-xl border border-gray-200 bg-gray-50 shadow-sm transition-all duration-300 hover:border-gray-300 hover:shadow-md dark:border-zinc-700 dark:bg-zinc-800 dark:hover:border-gray-600 md:col-span-4">
             <CardHeader className="pb-3">
               <div className="space-y-3">
                 <div className="relative">
@@ -167,7 +167,7 @@ export default function Support() {
                   <p className="text-gray-600 dark:text-gray-400 text-xs mt-1">
                     {ticket.requester_name}
                   </p>
-                  <div className="flex items-center justify-between mt-2">
+                  <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
                     <Badge
                       variant="outline"
                       className={
@@ -202,7 +202,7 @@ export default function Support() {
               </div>
             )}
           </div>
-          <div className="col-span-10 md:col-span-8 group bg-gray-50 dark:bg-zinc-800 rounded-xl shadow-sm hover:shadow-md border border-gray-200 dark:border-zinc-700 hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300 flex flex-col">
+          <div className="group col-span-1 flex flex-col rounded-xl border border-gray-200 bg-gray-50 shadow-sm transition-all duration-300 hover:border-gray-300 hover:shadow-md dark:border-zinc-700 dark:bg-zinc-800 md:col-span-8">
             {openTabs.length > 0 && (
               <div className="flex border-b border-gray-200 dark:border-white/5 overflow-x-auto">
                 {openTabs.map((tab) => (
@@ -242,8 +242,8 @@ export default function Support() {
             {selectedTicket ? (
               <div className="">
                 <CardHeader className="pb-3 border-b border-gray-200 dark:border-white/5">
-                  <div className="flex items-center justify-between">
-                    <div>
+                  <div className="flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-start">
+                    <div className="min-w-0">
                       <CardTitle className="text-zinc-900 dark:text-white">
                         {selectedTicket.subject}
                       </CardTitle>
@@ -256,7 +256,7 @@ export default function Support() {
                         {formatDate(selectedTicket.created_at)}
                       </p>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-wrap items-center gap-2">
                       <Badge
                         className={`${statusColors[selectedTicket.status] || 'bg-gray-500'} text-white capitalize`}
                       >
@@ -281,8 +281,8 @@ export default function Support() {
                       <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 bg-blue-100 dark:bg-blue-500/20">
                         <User className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                       </div>
-                      <div className="flex-1 max-w-[80%]">
-                        <div className="flex items-center gap-2 mb-1">
+                      <div className="min-w-0 max-w-[90%] flex-1 sm:max-w-[80%]">
+                        <div className="mb-1 flex flex-wrap items-center gap-2">
                           <span className="text-sm font-medium text-zinc-900 dark:text-white">
                             {selectedTicket.requester_name}
                           </span>
@@ -342,8 +342,8 @@ export default function Support() {
                             />
                           )}
                         </div>
-                        <div className="flex-1 max-w-[80%]">
-                          <div className="flex items-center gap-2 mb-1">
+                        <div className="min-w-0 max-w-[90%] flex-1 sm:max-w-[80%]">
+                          <div className="mb-1 flex flex-wrap items-center gap-2">
                             <span className="text-sm font-medium text-zinc-900 dark:text-white">
                               {msg.name}
                             </span>
@@ -377,7 +377,11 @@ export default function Support() {
                       value={newMessage}
                       onChange={(e) => setNewMessage(e.target.value)}
                     />
-                    <Button className="bg-blue-500 hover:bg-blue-600 text-white">
+                    <Button
+                      size="icon"
+                      aria-label="Send response"
+                      className="shrink-0 bg-blue-500 text-white hover:bg-blue-600"
+                    >
                       <Send className="w-4 h-4" />
                     </Button>
                   </div>

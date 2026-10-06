@@ -87,20 +87,20 @@ export default function AILogs() {
   };
 
   return (
-    <div className="min-h-screen p-6 bg-white dark:bg-zinc-900">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex mb-3 items-center justify-between">
-          <div>
-            <h1 className="text-3xl font-bold text-zinc-900 dark:text-zinc-100">
+    <div className="min-h-screen bg-white p-4 dark:bg-zinc-900 sm:p-6">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-4 flex flex-col items-start justify-between gap-4 sm:mb-3 sm:flex-row sm:items-center">
+          <div className="min-w-0">
+            <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 sm:text-3xl">
               AI Logs
             </h1>
-            <p className="text-gray-500 dark:text-gray-400 mt-1">
+            <p className="mt-1 text-sm text-gray-500 dark:text-gray-400 sm:text-base">
               Monitor AI API calls, usage, and performance
             </p>
           </div>
           <Button
             variant="outline"
-            className="border-gray-300 dark:border-white/10 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/5"
+            className="w-full border-gray-300 text-gray-700 dark:border-white/10 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/5 sm:w-auto"
           >
             <RefreshCw className={`w-4 h-4 mr-2`} />
             Refresh
@@ -109,12 +109,12 @@ export default function AILogs() {
         <StatsCards stats={statsData} />
         <div className="group bg-gray-100 dark:bg-zinc-800 rounded-xl shadow-sm hover:shadow-md border border-gray-200 dark:border-zinc-700 hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300 mt-4">
           <CardHeader>
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
               <CardTitle className="text-zinc-900 dark:text-white">
                 Recent API Calls {total > 0 && `(${total})`}
               </CardTitle>
-              <div className="flex flex-wrap gap-3">
-                <div className="relative w-64">
+              <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
+                <div className="relative w-full sm:w-64">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                   <Input
                     placeholder="Search logs..."
@@ -124,7 +124,7 @@ export default function AILogs() {
                   />
                 </div>
                 <Select value={statusFilter} onValueChange={setStatusFilter}>
-                  <SelectTrigger className="w-32 bg-white dark:bg-zinc-900 border-gray-300 dark:border-white/10 text-zinc-900 dark:text-white">
+                  <SelectTrigger className="w-full bg-white text-zinc-900 dark:border-white/10 dark:bg-zinc-900 dark:text-white sm:w-32">
                     <SelectValue placeholder="Status" />
                   </SelectTrigger>
                   <SelectContent className="bg-white dark:bg-zinc-900 border-gray-300 dark:border-white/10">
@@ -155,7 +155,7 @@ export default function AILogs() {
                   </SelectContent>
                 </Select>
                 <Select value={agentFilter} onValueChange={setAgentFilter}>
-                  <SelectTrigger className="w-40 bg-white dark:bg-zinc-900 border-gray-300 dark:border-white/10 text-zinc-900 dark:text-white">
+                  <SelectTrigger className="w-full bg-white text-zinc-900 dark:border-white/10 dark:bg-zinc-900 dark:text-white sm:w-40">
                     <SelectValue placeholder="Agent" />
                   </SelectTrigger>
                   <SelectContent className="bg-white dark:bg-zinc-900 border-gray-300 dark:border-white/10">

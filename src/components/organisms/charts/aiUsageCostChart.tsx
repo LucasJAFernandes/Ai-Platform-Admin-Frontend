@@ -76,14 +76,22 @@ export function AIUsageCostChart({ aiCosts }: AIUsageCostChartProps) {
         scales: {
           x: {
             grid: { color: gridColor },
-            ticks: { color: tickColor, font: { size: 11 }, autoSkip: false },
+            ticks: {
+              color: tickColor,
+              font: { size: 10 },
+              autoSkip: true,
+              maxTicksLimit: 5,
+              maxRotation: 35,
+              minRotation: 0,
+            },
           },
           y: {
             position: 'left',
             grid: { color: gridColor },
             ticks: {
               color: tickColor,
-              font: { size: 11 },
+              font: { size: 10 },
+              padding: 2,
               callback: (v) => `€${Number(v).toFixed(1)}K`,
             },
           },
@@ -92,7 +100,8 @@ export function AIUsageCostChart({ aiCosts }: AIUsageCostChartProps) {
             grid: { drawOnChartArea: false },
             ticks: {
               color: '#22c55e',
-              font: { size: 11 },
+              font: { size: 10 },
+              padding: 2,
               callback: (v) => `${Number(v).toFixed(0)}K`,
             },
           },
@@ -106,43 +115,43 @@ export function AIUsageCostChart({ aiCosts }: AIUsageCostChartProps) {
   }, [aiCosts]);
 
   return (
-    <div className="bg-zinc-200 p-3 rounded-xl dark:bg-zinc-800 transition-all duration-300 ">
-      <div className="flex justify-between items-center mb-2">
-        <h3 className="font-bold text-zinc-700 dark:text-zinc-100">
+    <div className="min-w-0 rounded-xl bg-zinc-200 p-2 transition-all duration-300 dark:bg-zinc-800 min-[400px]:p-3 sm:p-4">
+      <div className="mb-2 flex flex-col items-start gap-1 min-[400px]:flex-row min-[400px]:items-center min-[400px]:justify-between min-[400px]:gap-2">
+        <h3 className="text-sm font-bold text-zinc-700 dark:text-zinc-100 sm:text-base">
           AI Usage & Cost
         </h3>
-        <Badge className="text-xs text-zinc-400 bg-zinc-300 dark:bg-zinc-700 px-2 py-0.5 rounded-full">
+        <Badge className="shrink-0 rounded-full bg-zinc-300 px-2 py-0.5 text-[10px] text-zinc-400 dark:bg-zinc-700 sm:text-xs">
           Last 30 days
         </Badge>
       </div>
 
-      <div className="flex gap-4 mb-3">
-        <div>
+      <div className="mb-3 grid grid-cols-1 gap-2 min-[400px]:grid-cols-3 sm:flex sm:gap-4">
+        <div className="min-w-0">
           <p className="text-[10px] text-zinc-400">Tokens used</p>
-          <p className="text-lg font-semibold text-zinc-700 dark:text-zinc-100">
+          <p className="truncate text-sm font-semibold text-zinc-700 dark:text-zinc-100 sm:text-lg">
             430K
           </p>
         </div>
-        <div>
+        <div className="min-w-0">
           <p className="text-[10px] text-zinc-400">Daily cost avg</p>
-          <p className="text-lg font-semibold text-zinc-700 dark:text-zinc-100">
+          <p className="truncate text-sm font-semibold text-zinc-700 dark:text-zinc-100 sm:text-lg">
             €6.85K
           </p>
         </div>
-        <div>
+        <div className="min-w-0">
           <p className="text-[10px] text-zinc-400">Total cost</p>
-          <p className="text-lg font-semibold text-zinc-700 dark:text-zinc-100">
+          <p className="truncate text-sm font-semibold text-zinc-700 dark:text-zinc-100 sm:text-lg">
             15.0K
           </p>
         </div>
       </div>
 
-      <div className="relative w-full h-[200px]">
+      <div className="relative h-[240px] w-full min-w-0 min-[400px]:h-[220px] sm:h-[240px] lg:h-[220px]">
         <canvas ref={canvasRef} />
       </div>
 
-      <div className="flex gap-3 mt-2 flex-wrap">
-        <span className="flex items-center gap-1 text-[11px] text-zinc-400">
+      <div className="mt-2 grid grid-cols-2 gap-x-2 gap-y-2 sm:flex sm:flex-wrap sm:gap-3">
+        <span className="col-span-2 flex items-center gap-1 text-[11px] text-zinc-400 sm:col-span-1">
           <span className="w-2.5 h-2.5 rounded-full bg-green-500 inline-block" />
           Tokens Used
         </span>

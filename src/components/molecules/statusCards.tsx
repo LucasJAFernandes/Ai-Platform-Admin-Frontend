@@ -59,12 +59,12 @@ export function StatsCards({
   };
 
   const getCardPadding = () => {
-    if (variant === 'centered') return 'p-6';
-    if (variant === 'dot') return 'p-4';
-    if (count <= 3) return 'p-8';
-    if (count === 4) return 'p-6';
-    if (count <= 6) return 'p-5';
-    return 'p-4';
+    if (variant === 'centered') return 'p-4 sm:p-6';
+    if (variant === 'dot') return 'p-3 sm:p-4';
+    if (count <= 3) return 'p-4 sm:p-8';
+    if (count === 4) return 'p-4 sm:p-6';
+    if (count <= 6) return 'p-4 sm:p-5';
+    return 'p-3 sm:p-4';
   };
 
   const getIconPadding = () =>
@@ -78,12 +78,12 @@ export function StatsCards({
   };
 
   const getValueSize = () => {
-    if (variant === 'centered') return 'text-3xl';
-    if (variant === 'dot') return 'text-xl';
-    if (count <= 3) return 'text-3xl';
-    if (count === 4) return 'text-2xl';
-    if (count <= 6) return 'text-xl';
-    return 'text-lg';
+    if (variant === 'centered') return 'text-2xl sm:text-3xl';
+    if (variant === 'dot') return 'text-lg sm:text-xl';
+    if (count <= 3) return 'text-2xl sm:text-3xl';
+    if (count === 4) return 'text-xl sm:text-2xl';
+    if (count <= 6) return 'text-lg sm:text-xl';
+    return 'text-base sm:text-lg';
   };
 
   const getLabelSize = () => {
@@ -97,7 +97,7 @@ export function StatsCards({
   return (
     <div
       className={cn(
-        'grid gap-3 w-full',
+        'grid w-full min-w-0 gap-3',
         variant === 'dot' && 'gap-4',
         getGridClass(),
         className,
@@ -107,7 +107,7 @@ export function StatsCards({
         <div
           key={stat.label ?? index}
           className={cn(
-            'group bg-zinc-200 rounded-xl dark:bg-zinc-800 shadow-sm hover:shadow-md border border-gray-200 dark:border-zinc-700 hover:border-gray-300 transition-all duration-300 transform hover:-translate-y-1 w-full',
+            'group min-w-0 w-full rounded-xl border border-gray-200 bg-zinc-200 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gray-300 hover:shadow-md dark:border-zinc-700 dark:bg-zinc-800',
             getCardPadding(),
             clickable(stat.linked),
             cardClassName,
@@ -116,10 +116,10 @@ export function StatsCards({
         >
           {variant === 'dot' && (
             <>
-              <div className="flex items-center justify-between mb-2">
+              <div className="mb-2 flex min-w-0 items-center justify-between gap-2">
                 <span
                   className={cn(
-                    'text-gray-400',
+                    'min-w-0 break-words text-gray-400',
                     getLabelSize(),
                     labelClassName,
                   )}
@@ -151,7 +151,7 @@ export function StatsCards({
             <div className="text-center">
               <div
                 className={cn(
-                  'w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110',
+                  'mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full transition-transform duration-300 group-hover:scale-110 sm:mb-4 sm:h-20 sm:w-20',
                   stat.color,
                   iconClassName,
                 )}
@@ -188,7 +188,7 @@ export function StatsCards({
           )}
 
           {variant === 'horizontal' && (
-            <div className="flex items-start">
+            <div className="flex min-w-0 items-start">
               <div
                 className={cn(
                   'rounded-xl shadow-sm transition-transform duration-300 group-hover:scale-110 shrink-0',
@@ -201,12 +201,12 @@ export function StatsCards({
                   <stat.icon className={cn('text-white', getIconSize())} />
                 )}
               </div>
-              <div className="ml-3 flex-1">
+              <div className="ml-2 min-w-0 flex-1 sm:ml-3">
                 <div className="flex flex-col h-full justify-between">
                   <div>
                     <p
                       className={cn(
-                        'text-gray-600 dark:text-zinc-300 whitespace-nowrap font-medium',
+                        'break-words font-medium text-gray-600 dark:text-zinc-300',
                         getLabelSize(),
                         labelClassName,
                       )}
@@ -215,7 +215,7 @@ export function StatsCards({
                     </p>
                     <h3
                       className={cn(
-                        'font-bold text-gray-900 dark:text-zinc-100 tracking-tight',
+                        'break-words font-bold tracking-tight text-gray-900 dark:text-zinc-100',
                         getValueSize(),
                         valueClassName,
                       )}

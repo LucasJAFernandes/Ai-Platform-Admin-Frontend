@@ -169,12 +169,14 @@ export default function Organization() {
                   <Button
                     variant="outline"
                     size="sm"
+                    aria-label="Previous page"
                     onClick={() =>
                       handlePageChange(mockPagination.currentPage - 1)
                     }
                     disabled={mockPagination.currentPage === 1}
                   >
-                    Previous
+                    <span className="text-lg leading-none sm:hidden">‹</span>
+                    <span className="hidden sm:inline">Previous</span>
                   </Button>
                   <span className="text-sm text-gray-600 dark:text-gray-400">
                     Page {mockPagination.currentPage} of{' '}
@@ -183,6 +185,7 @@ export default function Organization() {
                   <Button
                     variant="outline"
                     size="sm"
+                    aria-label="Next page"
                     onClick={() =>
                       handlePageChange(mockPagination.currentPage + 1)
                     }
@@ -190,7 +193,8 @@ export default function Organization() {
                       mockPagination.currentPage === mockPagination.totalPages
                     }
                   >
-                    Next
+                    <span className="text-lg leading-none sm:hidden">›</span>
+                    <span className="hidden sm:inline">Next</span>
                   </Button>
                 </div>
               )}

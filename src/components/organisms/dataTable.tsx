@@ -4,6 +4,7 @@ import React from 'react';
 import { ResponsiveList, Column } from '@/components/templates/responsiveList';
 import { CardContent } from '@/components/atoms/card';
 import { Button } from '../atoms/button';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface DataTableProps<T> {
   data: T[];
@@ -77,23 +78,28 @@ export function DataTable<T>({
         />
       </div>
       <div className="flex items-center justify-between px-4 py-3 border-t border-white/5 rounded-b-xl">
-        <p className="text-sm text-gray-500">Page 1 of 10</p>
+        
 
         <div className="flex gap-2">
           <Button
             variant="outline"
             size="sm"
+            aria-label="Previous page"
             className="border-white/10 text-gray-300 hover:text-white hover:bg-white/10"
           >
-            Previous
+            <ChevronLeft className="h-4 w-4 sm:hidden" />
+            <span className="hidden sm:inline">Previous</span>
           </Button>
-
+            <p className="text-sm text-gray-500 hidden sm:inline">Page 1 of 10</p>
+            <p className="text-sm text-gray-500 sm:hidden text-center">1-10</p>
           <Button
             variant="outline"
             size="sm"
+            aria-label="Next page"
             className="border-white/10 text-gray-300 hover:text-white hover:bg-white/10"
           >
-            Next
+            <span className="hidden sm:inline">Next</span>
+            <ChevronRight className="h-4 w-4 sm:hidden" />
           </Button>
         </div>
       </div>

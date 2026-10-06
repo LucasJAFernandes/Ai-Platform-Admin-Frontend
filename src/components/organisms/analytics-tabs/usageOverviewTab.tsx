@@ -25,16 +25,16 @@ export function UsageOverviewTab() {
   ).toFixed(3);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       <StatsCards
         variant="dot"
         stats={OVERVIEW_STATS}
-        gridClassName="grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
+        gridClassName="grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
         cardClassName="bg-zinc-300 border-white/5 hover:border-white/10"
         valueClassName="text-zinc-800 dark:text-white"
       />
 
-      <div className="grid grid-cols-3 gap-4 px-4 py-2 bg-zinc-300 dark:bg-zinc-800 rounded-lg border border-white/5">
+      <div className="grid grid-cols-1 gap-3 rounded-lg border border-white/5 bg-zinc-300 px-4 py-3 dark:bg-zinc-800 sm:grid-cols-3 sm:gap-4 sm:py-2">
         <div className="text-center">
           <p className="text-xs dark:text-gray-500">Success Rate</p>
           <p className="text-sm font-semibold dark:text-green-400">
@@ -57,15 +57,15 @@ export function UsageOverviewTab() {
 
       {MOCK_OVERVIEW_DATA?.daily_breakdown.length > 0 && (
         <>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-            <div className="lg:col-span-2 bg-zinc-300 dark:bg-zinc-800 rounded-xl border border-white/5 p-4 overflow-x-auto">
-              <h3 className="text-sm font-semibold dark:text-white mb-3">
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
+            <div className="overflow-x-auto rounded-xl border border-white/5 bg-zinc-300 p-3 dark:bg-zinc-800 sm:p-4 lg:col-span-2">
+              <h3 className="mb-3 text-sm font-semibold dark:text-white">
                 Daily Runs & Tokens
               </h3>
               <DailyRunsTokensChart data={MOCK_OVERVIEW_DATA.daily_breakdown} />
             </div>
-            <div className="bg-zinc-300 dark:bg-zinc-800 rounded-xl border border-white/5 p-4">
-              <h3 className="text-sm font-semibold dark:text-white mb-3">
+            <div className="rounded-xl border border-white/5 bg-zinc-300 p-3 dark:bg-zinc-800 sm:p-4">
+              <h3 className="mb-3 text-sm font-semibold dark:text-white">
                 Run Status Distribution
               </h3>
               <div className="flex items-center justify-center h-64">
@@ -79,15 +79,15 @@ export function UsageOverviewTab() {
             </div>
           </div>
 
-          <div className="bg-zinc-300 dark:bg-zinc-800 rounded-xl border border-white/5 p-4 overflow-x-auto">
-            <h3 className="text-sm font-semibold dark:text-white mb-3">
+          <div className="overflow-x-auto rounded-xl border border-white/5 bg-zinc-300 p-3 dark:bg-zinc-800 sm:p-4">
+            <h3 className="mb-3 text-sm font-semibold dark:text-white">
               Daily Cost
             </h3>
             <DailyCostChart data={MOCK_OVERVIEW_DATA.daily_breakdown} />
           </div>
 
-          <div className="bg-zinc-300 dark:bg-zinc-800 rounded-xl border border-white/5 p-4">
-            <div className="flex items-center justify-between mb-3">
+          <div className="rounded-xl border border-white/5 bg-zinc-300 p-3 dark:bg-zinc-800 sm:p-4">
+            <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
               <h3 className="text-sm font-semibold dark:text-white">
                 Daily Breakdown
               </h3>
@@ -96,23 +96,37 @@ export function UsageOverviewTab() {
               </p>
             </div>
             <div className="overflow-x-auto">
-              <div className="sm:hidden space-y-2">
+              <div className="space-y-3 sm:hidden">
                 {MOCK_OVERVIEW_DATA.daily_breakdown.map((row, i) => (
                   <div
                     key={i}
-                    className="rounded-lg border border-white/5 bg-white/5 p-3"
+                    className="min-w-0 rounded-lg border border-white/5 bg-white/5 p-3"
                   >
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="dark:text-white font-medium text-sm">
+                    <div className="mb-3 flex items-start justify-between gap-3">
+                      <span className="min-w-0 break-words text-sm font-medium dark:text-white">
                         {row.day}
                       </span>
-                      <span className="dark:text-white font-medium text-sm">
+                      <span className="shrink-0 text-sm font-semibold dark:text-white">
                         ${row.cost_usd.toFixed(2)}
                       </span>
                     </div>
-                    <div className="flex items-center justify-between text-xs text-gray-600 dark:text-gray-400">
-                      <span>{row.runs.toLocaleString()} runs</span>
-                      <span>{row.tokens.toLocaleString()} tokens</span>
+                    <div className="grid grid-cols-2 gap-2 text-xs">
+                      <div className="min-w-0 rounded-md bg-black/5 px-2 py-2 dark:bg-black/20">
+                        <span className="block text-gray-500 dark:text-gray-500">
+                          Runs
+                        </span>
+                        <span className="break-words font-medium text-gray-700 dark:text-gray-300">
+                          {row.runs.toLocaleString()}
+                        </span>
+                      </div>
+                      <div className="min-w-0 rounded-md bg-black/5 px-2 py-2 dark:bg-black/20">
+                        <span className="block text-gray-500 dark:text-gray-500">
+                          Tokens
+                        </span>
+                        <span className="break-words font-medium text-gray-700 dark:text-gray-300">
+                          {row.tokens.toLocaleString()}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 ))}

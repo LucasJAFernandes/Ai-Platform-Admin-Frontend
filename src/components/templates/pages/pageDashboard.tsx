@@ -19,7 +19,7 @@ export default function Dashboard() {
   );
 
   return (
-    <div className="min-h-screen p-6">
+    <div className="min-h-screen p-3 sm:p-6">
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center mb-2 justify-between">
           <div>

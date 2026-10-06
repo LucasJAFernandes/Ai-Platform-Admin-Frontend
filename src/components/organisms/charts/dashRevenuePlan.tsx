@@ -37,18 +37,18 @@ export function RevenueByPlan({ data, moduleData }: RevenueByPlanProps) {
 
   if (!hasPlansData && !hasModulesData) {
     return (
-      <div className="bg-zinc-200 h-full dark:bg-zinc-800 p-4 rounded-xl w-full shadow-sm hover:shadow-md border border-gray-200 dark:border-zinc-700 transition-all duration-300">
-        <div className="flex justify-between items-center mb-4">
-          <h3 className="font-bold text-zinc-700 dark:text-zinc-100 text-sm">
+      <div className="h-full min-w-0 w-full rounded-xl border border-gray-200 bg-zinc-200 p-3 shadow-sm transition-all duration-300 hover:shadow-md dark:border-zinc-700 dark:bg-zinc-800 sm:p-4">
+        <div className="mb-4 flex flex-col items-start gap-3 min-[400px]:flex-row min-[400px]:items-center min-[400px]:justify-between">
+          <h3 className="text-sm font-bold text-zinc-700 dark:text-zinc-100">
             Revenue by {view}
           </h3>
-          <div className="flex bg-zinc-300 dark:bg-zinc-700 rounded-lg p-0.5 text-xs">
+          <div className="flex w-full rounded-lg bg-zinc-300 p-0.5 text-xs dark:bg-zinc-700 min-[400px]:w-auto">
             {(['Plans', 'Models'] as const).map((v) => (
               <button
                 key={v}
                 onClick={() => setView(v)}
                 className={cn(
-                  'px-3 py-1 rounded-md capitalize transition-all font-medium',
+                  'flex-1 rounded-md px-2 py-1 capitalize font-medium transition-all min-[400px]:flex-none min-[400px]:px-3',
                   view === v
                     ? 'bg-white dark:bg-zinc-600 text-zinc-800 dark:text-zinc-100 shadow-sm'
                     : 'text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300',
@@ -59,7 +59,7 @@ export function RevenueByPlan({ data, moduleData }: RevenueByPlanProps) {
             ))}
           </div>
         </div>
-        <div className="flex items-center justify-center h-32 text-zinc-500 dark:text-zinc-400">
+        <div className="flex h-32 items-center justify-center text-center text-zinc-500 dark:text-zinc-400">
           No {view.toLowerCase()} data available
         </div>
       </div>
@@ -97,12 +97,12 @@ export function RevenueByPlan({ data, moduleData }: RevenueByPlanProps) {
   const currencySymbol = getCurrencySymbol(currentData.currency);
 
   return (
-    <div className="bg-zinc-200 dark:bg-zinc-800 p-4 rounded-xl w-full shadow-sm hover:shadow-md border border-gray-200 dark:border-zinc-700 hover:border-gray-300 transition-all duration-300">
-      <div className="flex justify-between items-center mb-4">
-        <h3 className="font-bold text-zinc-700 dark:text-zinc-100 text-sm">
+    <div className="h-full min-w-0 w-full rounded-xl border border-gray-200 bg-zinc-200 p-3 shadow-sm transition-all duration-300 hover:border-gray-300 hover:shadow-md dark:border-zinc-700 dark:bg-zinc-800 sm:p-4">
+      <div className="mb-4 flex flex-col items-start gap-3 min-[400px]:flex-row min-[400px]:items-center min-[400px]:justify-between">
+        <h3 className="text-sm font-bold text-zinc-700 dark:text-zinc-100">
           {currentData.title}
         </h3>
-        <div className="flex bg-zinc-300 dark:bg-zinc-700 rounded-lg p-0.5 text-xs">
+        <div className="flex w-full rounded-lg bg-zinc-300 p-0.5 text-xs dark:bg-zinc-700 min-[400px]:w-auto">
           {(['Plans', 'Models'] as const).map((v) => (
             <button
               key={v}
@@ -115,7 +115,7 @@ export function RevenueByPlan({ data, moduleData }: RevenueByPlanProps) {
                 (v === 'Models' && !hasModulesData)
               }
               className={cn(
-                'px-3 py-1 rounded-md capitalize transition-all font-medium',
+                'flex-1 rounded-md px-2 py-1 capitalize font-medium transition-all min-[400px]:flex-none min-[400px]:px-3',
                 view === v
                   ? 'bg-white dark:bg-zinc-600 text-zinc-800 dark:text-zinc-100 shadow-sm'
                   : 'text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300',
@@ -130,8 +130,8 @@ export function RevenueByPlan({ data, moduleData }: RevenueByPlanProps) {
         </div>
       </div>
 
-      <div className="xl:flex flex sm: items-center gap-2">
-        <div className="flex-shrink-0">
+      <div className="flex min-w-0 flex-col items-center gap-3 lg:flex-row lg:items-center">
+        <div className="shrink-0">
           <PieChart
             series={[
               {
@@ -160,7 +160,7 @@ export function RevenueByPlan({ data, moduleData }: RevenueByPlanProps) {
             slots={{ tooltip: () => null }}
           />
         </div>
-        <div className="flex-1 min-w-0 h-[122px] flex mt-2 items-center">
+        <div className="flex min-h-[122px] w-full min-w-0 flex-1 items-center lg:mt-0">
           {activeItem ? (
             <div className="w-full animate-in fade-in slide-in-from-right-2 duration-150">
               <div className="flex items-center gap-2 mb-2">
@@ -289,9 +289,9 @@ export function RevenueByPlan({ data, moduleData }: RevenueByPlanProps) {
               {currentData.items.map((item, idx) => (
                 <div
                   key={idx}
-                  className="md:relative flex sm:items-center sm:gap-2"
+                  className="flex min-w-0 items-center gap-2"
                 >
-                  <div className="flex items-center gap-2 w-full">
+                  <div className="flex min-w-0 flex-1 items-center gap-2">
                     <div
                       className="w-2 h-2 rounded-full flex-shrink-0"
                       style={{ backgroundColor: item.color }}
@@ -300,7 +300,7 @@ export function RevenueByPlan({ data, moduleData }: RevenueByPlanProps) {
                       {item.label}
                     </span>
                   </div>
-                  <span className="text-xs font-medium text-zinc-700 dark:text-zinc-300">
+                  <span className="shrink-0 text-xs font-medium text-zinc-700 dark:text-zinc-300">
                     {item.pct}%
                   </span>
                 </div>
@@ -310,11 +310,11 @@ export function RevenueByPlan({ data, moduleData }: RevenueByPlanProps) {
         </div>
       </div>
 
-      <div className="flex justify-between items-center mt-4 pt-3 border-t border-zinc-300 dark:border-zinc-700">
+      <div className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-zinc-300 pt-3 dark:border-zinc-700">
         <span className="text-sm font-semibold text-zinc-600 dark:text-zinc-400">
           {currentData.totalLabel}
         </span>
-        <span className="text-base font-bold text-zinc-800 dark:text-zinc-100">
+        <span className="text-right text-base font-bold text-zinc-800 dark:text-zinc-100">
           {currencySymbol}
           {currentData.total.toLocaleString('de-DE', {
             minimumFractionDigits: 2,

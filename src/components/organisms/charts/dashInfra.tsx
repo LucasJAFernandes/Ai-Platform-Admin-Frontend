@@ -33,20 +33,20 @@ export function InfrastructureBreakdown({ data }: InfraBreakdownProps) {
   };
 
   return (
-    <div className="bg-zinc-200  h-full dark:bg-zinc-800 p-4 rounded-xl shadow-sm hover:shadow-md border border-gray-200 dark:border-zinc-700 hover:border-gray-300 transition-all duration-300">
-      <div className="flex items-center justify-between mb-4">
+    <div className="h-full min-w-0 rounded-xl border border-gray-200 bg-zinc-200 p-3 shadow-sm transition-all duration-300 hover:border-gray-300 hover:shadow-md dark:border-zinc-700 dark:bg-zinc-800 sm:p-4">
+        <div className="mb-4 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-2">
-          <h3 className="font-bold text-zinc-700 dark:text-zinc-100 text-sm">
+          <h3 className="text-sm font-bold text-zinc-700 dark:text-zinc-100">
             Infrastructure Costs Breakdown
           </h3>
         </div>
-        <div className="flex bg-zinc-300 dark:bg-zinc-700 rounded-lg p-0.5 text-xs">
+        <div className="flex w-full rounded-lg bg-zinc-300 p-0.5 text-xs dark:bg-zinc-700 sm:w-auto">
           {(['category', 'provider'] as const).map((v) => (
             <button
               key={v}
               onClick={() => setView(v)}
               className={cn(
-                'px-3 py-1 rounded-md capitalize transition-all font-medium',
+                'flex-1 rounded-md px-2 py-1 capitalize font-medium transition-all sm:flex-none sm:px-3',
                 view === v
                   ? 'bg-white dark:bg-zinc-600 text-zinc-800 dark:text-zinc-100 shadow-sm'
                   : 'text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300',
@@ -58,7 +58,7 @@ export function InfrastructureBreakdown({ data }: InfraBreakdownProps) {
         </div>
       </div>
       <div className="mb-4">
-        <p className="text-2xl font-bold text-zinc-800 dark:text-zinc-100">
+        <p className="text-xl font-bold text-zinc-800 dark:text-zinc-100 sm:text-2xl">
           €{total.toLocaleString('de-DE', { minimumFractionDigits: 2 })}
         </p>
         <p className="text-xs text-zinc-500">Current month</p>
@@ -76,12 +76,12 @@ export function InfrastructureBreakdown({ data }: InfraBreakdownProps) {
           />
         ))}
       </div>
-      <div className="space-y-2.5 max-h-[8vh] overflow-y-auto">
+      <div className="max-h-[28vh] space-y-2.5 overflow-y-auto sm:max-h-[8vh]">
         {categories.map((item, i) => {
           const pct = Math.round((item.amount / total) * 100);
           const displayName = getDisplayName(item.category);
           return (
-            <div key={item.category} className="flex items-center gap-3">
+            <div key={item.category} className="flex flex-wrap items-center gap-2 sm:flex-nowrap sm:gap-3">
               <div
                 className={cn(
                   'w-2 h-2 rounded-full flex-shrink-0',
@@ -94,8 +94,8 @@ export function InfrastructureBreakdown({ data }: InfraBreakdownProps) {
               <span className="flex-1 text-sm text-zinc-700 dark:text-zinc-300">
                 {displayName}
               </span>
-              <div className="flex items-center gap-3">
-                <div className="w-24 h-1.5 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
+              <div className="ml-auto flex w-full items-center justify-end gap-2 sm:w-auto sm:gap-3">
+                <div className="h-1.5 w-16 overflow-hidden rounded-full bg-zinc-300 dark:bg-zinc-700 sm:w-24">
                   <div
                     className={cn(
                       'h-full rounded-full',
@@ -104,10 +104,10 @@ export function InfrastructureBreakdown({ data }: InfraBreakdownProps) {
                     style={{ width: `${pct}%` }}
                   />
                 </div>
-                <span className="text-xs text-zinc-500 w-8 text-right">
+                <span className="w-7 text-right text-xs text-zinc-500 sm:w-8">
                   {pct}%
                 </span>
-                <span className="text-sm font-semibold text-zinc-700 dark:text-zinc-200 w-16 text-right">
+                <span className="w-20 text-right text-sm font-semibold text-zinc-700 sm:w-16">
                   €{item.amount.toFixed(2)}
                 </span>
               </div>

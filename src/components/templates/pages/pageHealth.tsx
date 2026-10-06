@@ -28,20 +28,20 @@ export default function Health() {
     mockAlerts.map(mapAlertToIncident);
 
   return (
-    <div className="min-h-screen p-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex items-center mb-2 justify-between">
-          <div>
-            <h1 className="text-3xl font-bold text-zinc-700 dark:text-zinc-100">
+    <div className="min-h-screen p-4 sm:p-6">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-4 flex flex-col items-start justify-between gap-4 sm:mb-2 sm:flex-row sm:items-center">
+          <div className="min-w-0">
+            <h1 className="text-2xl font-bold text-zinc-700 dark:text-zinc-100 sm:text-3xl">
               System Health
             </h1>
-            <p className="text-gray-400 mt-1">
+            <p className="mt-1 text-sm text-gray-400 sm:text-base">
               Monitor platform status, performance, and incidents
             </p>
           </div>
           <Button
             variant="outline"
-            className="border-black dark:border-zinc-600 text-zinc-900 dark:text-zinc-100 hover:text-white"
+            className="border-black text-zinc-900 dark:border-zinc-600 dark:text-zinc-100 hover:text-white"
           >
             <RefreshCw className={`w-4 h-4 mr-2`} />
             Refresh
@@ -80,7 +80,7 @@ export default function Health() {
           ]}
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           <ServiceStatus loading={false} displayServices={displayServices} />
           <IncidentList
             loading={false}

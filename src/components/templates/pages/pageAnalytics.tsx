@@ -74,11 +74,11 @@ export default function Analytics() {
               Platform usage metrics and performance insights
             </p>
           </div>
-          <div className="flex md:mt-0 mt-2  items-center gap-3">
+          <div className="sm:flex md:mt-0 mt-2  items-center gap-3">
             <DateRangePicker value={dateRange} onChange={setDateRange} />
             <Button
               variant="outline"
-              className="border-white/10 text-gray-300 hover:text-white"
+              className="border-white/10 sm:mt-0 mt-2 text-gray-300 hover:text-white"
             >
               <Download className="w-4 h-4 mr-2" />
               Export
