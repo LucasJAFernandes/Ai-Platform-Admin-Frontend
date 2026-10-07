@@ -31,7 +31,7 @@ jobs:
         run: pnpm typecheck
 
       - name: Lint
-        run: pnpm lint -- --max-warnings 0
+        run: pnpm lint --max-warnings 0
 
       - name: Build
         run: pnpm build
