@@ -3,21 +3,11 @@ import { CardContent, CardHeader, CardTitle } from '@/components/atoms/card';
 import { Badge } from '@/components/atoms/badge';
 import { RefreshCw } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import type { ServiceStatus } from '@/lib/types/healty.types';
-
-interface DisplayService {
-  name: string;
-  status: 'operational' | 'degraded' | 'outage';
-  latency: number;
-  uptime: number;
-  lastCheck: string;
-  icon: React.ElementType;
-}
-
-interface ServiceStatusProps {
-  loading: boolean;
-  displayServices: DisplayService[] | null;
-}
+import type {
+  DisplayService,
+  ServiceStatus,
+  ServiceStatusProps,
+} from '@/lib/types/healty.types';
 const statusConfig: Record<
   string,
   { color: string; iconColor: string; icon: React.ElementType; label: string }

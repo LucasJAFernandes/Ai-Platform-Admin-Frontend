@@ -4,11 +4,7 @@ import React from 'react';
 import { CardHeader, CardTitle } from '@/components/atoms/card';
 import { Users, CreditCard } from 'lucide-react';
 import { formatDate } from '@/lib/utils';
-import type { Subscription } from '@/lib/types/billing.types';
-
-interface ListSubsProps {
-  subscriptions: Subscription[];
-}
+import type { ListSubscriptionsProps } from '@/lib/types/components/organisms';
 
 const paymentMethodIcons: Record<string, React.ElementType> = {
   card: CreditCard,
@@ -16,7 +12,7 @@ const paymentMethodIcons: Record<string, React.ElementType> = {
   invoice: CreditCard,
 };
 
-export function ListSubs({ subscriptions }: ListSubsProps) {
+export function ListSubs({ subscriptions }: ListSubscriptionsProps) {
   if (subscriptions.length === 0) {
     return (
       <div className="mt-6 group bg-zinc-200 rounded-xl dark:bg-zinc-800 shadow-sm border border-gray-200 dark:border-zinc-700 p-8">

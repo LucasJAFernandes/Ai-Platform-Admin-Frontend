@@ -2,11 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
-import type { PlanStat } from '@/lib/types/organization.types';
-
-interface ByPlanChartProps {
-  data?: PlanStat[];
-}
+import type { ByPlanChartProps } from '@/lib/types/components/organisms';
 
 export function ByPlanChart({ data }: ByPlanChartProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);

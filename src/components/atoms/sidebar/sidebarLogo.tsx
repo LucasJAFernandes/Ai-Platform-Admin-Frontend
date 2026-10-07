@@ -1,9 +1,6 @@
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
-
-interface SidebarLogoProps {
-  collapsed: boolean;
-}
+import type { SidebarLogoProps } from '@/lib/types/components/atomic';
 
 export function SidebarLogo({ collapsed }: SidebarLogoProps) {
   return (

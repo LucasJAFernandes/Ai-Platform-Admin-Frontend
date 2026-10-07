@@ -1,9 +1,4 @@
-import type { NavSubItem } from '@/lib/sidebar-config';
-
-interface NavSubItemListProps {
-  items: NavSubItem[];
-  onSelect: (item: NavSubItem) => void;
-}
+import type { NavSubItemListProps } from '@/lib/types/components/molecular';
 
 export function NavSubItemList({ items, onSelect }: NavSubItemListProps) {
   return (

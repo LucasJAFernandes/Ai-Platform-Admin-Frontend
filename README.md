@@ -4,6 +4,10 @@ A responsive admin dashboard for managing a multi-tenant AI platform — tenants
 
 > **Note:** this is a UI-focused project. All data comes from local mocks, so it runs out of the box with **no backend and no environment variables**.
 
+This repository intentionally focuses on the admin experience: responsive workflows,
+typed mock data, reusable UI primitives and realistic client-side state. A future
+project can replace the mock layer with a backend without changing the page structure.
+
 [Vercel preview](https://ai-platform-admin-frontend.vercel.app/)
 
 ## ✨ Features
@@ -64,12 +68,33 @@ src/
 │   └── templates/        # Full page layouts
 ├── lib/
 │   ├── types/            # Centralized domain type definitions
+│   ├── storage.ts        # SSR-safe browser storage helpers
 │   ├── schemas/          # Zod validation schemas
 │   ├── utils/            # Domain helpers
 │   └── store/            # Client state (Zustand)
 ├── mocks/                # Mock data powering the demo
 └── hooks/                # Reusable React hooks
 ```
+
+## Engineering notes
+
+- **Offline by design:** pages consume the typed modules in `src/mocks/`; there is no API client in this repository.
+- **Validation:** run `pnpm typecheck`, `pnpm lint -- --max-warnings 0` and `pnpm build` before opening a pull request.
+- **State:** transient UI state stays in components or Zustand, while browser persistence goes through `src/lib/storage.ts`.
+- **Accessibility:** interactive controls use semantic buttons, visible focus styles and ARIA metadata where the UI needs additional context.
+- **Architecture:** reusable props live in `src/lib/types/components/`, while feature payloads stay in domain-specific type files.
+
+## Portfolio walkthrough
+
+The recommended demo path is:
+
+1. Open the dashboard and switch between light and dark themes.
+2. Search and filter tenants in Organization, then open a tenant detail view.
+3. Run through the tenant creation wizard and inspect its validation states.
+4. Compare Billing and Analytics views, including responsive layouts.
+5. Open Health and Support to see operational states, incidents and tickets.
+
+The screenshots in `public/screenshots/` document the main responsive surfaces.
 
 ## 📸 Screenshots
 

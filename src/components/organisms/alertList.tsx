@@ -1,20 +1,11 @@
 import { Badge } from '@/components/atoms/badge';
-import type { Alert } from '@/lib/types/billing.types';
-
-interface StatsCardsProps {
-  alerts: Alert[];
-  severityConfig: Record<
-    string,
-    { color: string; bgColor: string; icon: React.ElementType }
-  >;
-  formatDate: (dateString: string) => string;
-}
+import type { AlertListProps } from '@/lib/types/components/organisms';
 
 export function AlertList({
   alerts,
   severityConfig,
   formatDate,
-}: StatsCardsProps) {
+}: AlertListProps) {
   return (
     <div className="space-y-3 max-h-[400px] overflow-y-auto pr-2">
       {alerts.map((alert) => {

@@ -102,11 +102,7 @@ export function StatsCards({
     return 'text-xs';
   };
   const clickpointer = (linked: unknown) => {
-    console.log(linked);
-    if (linked) {
-      return 'cursor-pointer';
-    }
-    return '';
+    return linked ? 'cursor-pointer' : '';
   };
   return (
     <div className={cn('grid gap-3 w-full', getGridClass(), className)}>

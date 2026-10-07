@@ -1,8 +1,7 @@
 import { LucideIcon } from 'lucide-react';
+import type { BillingCycle, PaymentMethod, TenantTier } from '@/lib/types/common.types';
 
-export type TenantTier = 'starter' | 'professional' | 'enterprise' | 'partner';
-export type BillingCycle = 'monthly' | 'yearly';
-export type PaymentMethod = 'card' | 'bank_transfer' | 'invoice';
+export type { BillingCycle, PaymentMethod, TenantTier } from '@/lib/types/common.types';
 export type AdminRole = 'super_admin' | 'admin' | 'billing_admin';
 export interface Step {
   id: number;

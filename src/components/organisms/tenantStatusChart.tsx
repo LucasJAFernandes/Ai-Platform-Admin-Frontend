@@ -2,11 +2,7 @@
 
 import { PieChart } from '@mui/x-charts';
 import { useState } from 'react';
-import type { ByStatus } from '@/lib/types/organization.types';
-
-interface TenantStatusChartProps {
-  data?: ByStatus;
-}
+import type { TenantStatusChartProps } from '@/lib/types/healty.types';
 
 const STATUS_COLORS: Record<string, string> = {
   active: '#10B981',

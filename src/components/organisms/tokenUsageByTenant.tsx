@@ -1,10 +1,5 @@
 import { cn } from '@/lib/utils';
-import type { TenantUsageItem } from '@/lib/types/analytics.types';
-
-interface TokenUsageByTenantProps {
-  data: TenantUsageItem[];
-  className?: string;
-}
+import type { TokenUsageByTenantProps } from '@/lib/types/components/organisms';
 
 export function TokenUsageByTenant({
   data,

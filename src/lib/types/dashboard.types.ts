@@ -1,3 +1,5 @@
+import type { CompanyUsage } from '@/lib/types/organization.types';
+
 interface AICosts {
   date: string;
   costs: number;
@@ -67,26 +69,6 @@ interface ProfitMargin {
   margin_change_pp: number;
   currency: string;
 }
-interface CompanyUsage {
-  tenant_id: number;
-  company_name: string;
-  slug: string;
-  status: 'active' | 'inactive' | 'suspended' | 'trial';
-  plan: string;
-  plan_slug: string;
-  deployment_type: 'cloud' | 'premise' | 'hybrid';
-  company_size: 'enterprise' | 'mid-market' | 'startup' | 'small_business';
-  mrr: number;
-  tokens_used: number;
-  token_limit: number;
-  token_usage_pct: number;
-  active_users: number;
-  ai_queries_mtd: number;
-  ai_queries_change_pct: number;
-  health_status: 'healthy' | 'warning' | 'critical' | 'inactive';
-  last_activity_at: string;
-  modules: Details[];
-}
 export interface RevenueByModule {
   total_mrr: number;
   currency: string;
@@ -102,10 +84,6 @@ export interface RevenueByModule {
     mrr: number;
     pct: number;
   }[];
-}
-interface Details {
-  key: string;
-  name: string;
 }
 interface tenant_health {
   healthy: number;

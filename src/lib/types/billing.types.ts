@@ -1,3 +1,11 @@
+import type {
+  AlertSeverity,
+  PaymentMethod,
+  SubscriptionStatus,
+} from '@/lib/types/common.types';
+
+export type { AlertSeverity, PaymentMethod, SubscriptionStatus } from '@/lib/types/common.types';
+
 export interface RevenueByPlan {
   plan_name: string;
   plan_color: string;
@@ -17,9 +25,6 @@ export interface BillingSummary {
   overdue_amount: number;
   revenue_by_plan: RevenueByPlan[];
 }
-export type SubscriptionStatus = 'active' | 'trial' | 'past_due' | 'cancelled';
-export type PaymentMethod = 'card' | 'bank_transfer' | 'invoice';
-
 export interface Subscription {
   tenant_id: number;
   tenant_name: string;
@@ -58,8 +63,6 @@ export interface Invoice {
   is_overdue: boolean;
   created_at: string;
 }
-
-export type AlertSeverity = 'critical' | 'warning' | 'info' | 'success';
 
 export interface Alert {
   id: number;

@@ -1,9 +1,4 @@
-import type { WeeklyDatum } from '@/lib/types/analytics.types';
-
-interface WeeklyQueryChartProps {
-  data: WeeklyDatum[];
-  className?: string;
-}
+import type { WeeklyQueryChartProps } from '@/lib/types/components/organisms';
 
 export function WeeklyQueryChart({ data }: WeeklyQueryChartProps) {
   const maxQueries =

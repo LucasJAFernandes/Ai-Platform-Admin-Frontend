@@ -12,9 +12,7 @@ import {
 import { Button } from '@/components/atoms/button';
 import { Badge } from '@/components/atoms/badge';
 
-import type { Module } from '@/lib/types/tenant-creation.types';
-
-type Addon = Module;
+import type { Addon, AddonsOptionsProps } from '@/lib/types/components/molecular';
 
 const addonsData: Addon[] = [
   {
@@ -84,11 +82,6 @@ const addonsData: Addon[] = [
   },
 ];
 
-interface AddonsOptionsProps {
-  cartItems?: Addon[];
-  onCartUpdate?: (items: Addon[]) => void;
-}
-
 export default function AddonsOptions({
   cartItems = [],
   onCartUpdate,
@@ -134,9 +127,7 @@ export default function AddonsOptions({
     });
   };
 
-  const handleLearnMore = (addonId: string) => {
-    console.log(`Saber mais sobre: ${addonId}`);
-  };
+  const handleLearnMore = () => undefined;
 
   return (
     <div className="mt-2 ml-1 mr-1">
@@ -188,7 +179,7 @@ export default function AddonsOptions({
                 <Button
                   variant="outline"
                   className="flex-1"
-                  onClick={() => handleLearnMore(addon.id)}
+                  onClick={handleLearnMore}
                 >
                   Know more
                 </Button>

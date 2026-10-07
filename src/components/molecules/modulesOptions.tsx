@@ -18,12 +18,9 @@ import {
 } from '@/components/atoms/card';
 import { Button } from '@/components/atoms/button';
 import { Badge } from '@/components/atoms/badge';
-import { Module } from '@/lib/types/tenant-creation.types';
-
-interface ModulesOptionsProps {
-  cartItems?: Module[];
-  onCartUpdate?: (items: Module[]) => void;
-}
+import type { Module } from '@/lib/types/tenant-creation.types';
+import type { ModulesOptionsProps } from '@/lib/types/components/molecular';
+import { setStoredValue } from '@/lib/storage';
 
 export default function ModulesOptions({
   cartItems = [],
@@ -71,7 +68,7 @@ export default function ModulesOptions({
     if (onCartUpdate) {
       onCartUpdate(updatedCart);
     }
-    localStorage.setItem('cartItems', JSON.stringify(updatedCart));
+    setStoredValue('cartItems', updatedCart);
   };
 
   const toggleModule = (moduleId: string) => {
@@ -85,13 +82,9 @@ export default function ModulesOptions({
     });
   };
 
-  const handleLearnMore = (moduleId: string) => {
-    console.log(`Saber mais sobre: ${moduleId}`);
-  };
+  const handleLearnMore = () => undefined;
 
-  const handleContactSales = () => {
-    console.log('Contatar equipe de vendas');
-  };
+  const handleContactSales = () => undefined;
 
   const scroll = (
     category: keyof typeof scrollRefs,
@@ -179,7 +172,7 @@ export default function ModulesOptions({
               <Button
                 variant="outline"
                 className="flex-1"
-                onClick={() => handleLearnMore(module.id)}
+                onClick={handleLearnMore}
               >
                 Know more
               </Button>
@@ -195,7 +188,7 @@ export default function ModulesOptions({
               <Button
                 variant="outline"
                 className="flex-1"
-                onClick={() => handleLearnMore(module.id)}
+                onClick={handleLearnMore}
               >
                 Know more
               </Button>

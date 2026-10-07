@@ -3,12 +3,8 @@ import { useRouter } from 'next/navigation';
 import { Building2, Database } from 'lucide-react';
 import { Badge } from '../atoms/badge';
 import { ResponsiveList, Column } from '../templates/responsiveList';
-import { CompanyUsage } from '@/lib/types/organization.types';
-
-interface ListTenantsProps {
-  tenants: CompanyUsage[];
-  searchTerm: string;
-}
+import type { CompanyUsage } from '@/lib/types/organization.types';
+import type { ListCompanyUsageProps } from '@/lib/types/components/organisms';
 
 const healthDot: Record<string, string> = {
   healthy: 'bg-green-500',
@@ -16,7 +12,7 @@ const healthDot: Record<string, string> = {
   critical: 'bg-red-500',
 };
 
-export function ListCompanyUsage({ tenants }: ListTenantsProps) {
+export function ListCompanyUsage({ tenants }: ListCompanyUsageProps) {
   const router = useRouter();
 
   const formatCurrency = (value: number) => {

@@ -2,11 +2,7 @@
 
 import { PieChart } from '@mui/x-charts';
 import { useState } from 'react';
-import type { HealthSummary } from '@/lib/types/organization.types';
-
-interface HealthSummaryChartProps {
-  data?: HealthSummary;
-}
+import type { HealthSummaryChartProps } from '@/lib/types/healty.types';
 
 const HEALTH_COLORS: Record<string, string> = {
   healthy: '#10B981',

@@ -1,6 +1,4 @@
-interface UserAvatarProps {
-  initials: string;
-}
+import type { UserAvatarProps } from '@/lib/types/components/atomic';
 
 export function UserAvatar({ initials }: UserAvatarProps) {
   return (

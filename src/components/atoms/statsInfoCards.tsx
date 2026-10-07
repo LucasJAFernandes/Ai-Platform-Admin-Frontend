@@ -1,18 +1,6 @@
 import { CardContent } from '@/components/atoms/card';
-
 import { ArrowUpRight, ArrowDownRight } from 'lucide-react';
-interface OverviewStat {
-  label: string;
-  value: string;
-  change: string;
-  trend: 'up' | 'down';
-  color: string;
-  icon: React.ElementType;
-}
-
-interface StatsInfoCardsProps {
-  overviewStats: OverviewStat[];
-}
+import type { StatsInfoCardsProps } from '@/lib/types/components/atomic';
 
 export function StatsInfoCards({ overviewStats }: StatsInfoCardsProps) {
   return overviewStats.map((stat) => (

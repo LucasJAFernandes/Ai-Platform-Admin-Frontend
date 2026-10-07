@@ -1,13 +1,5 @@
 import { UserIcon, Settings, Sun, Moon, LogOut } from 'lucide-react';
-
-interface UserMenuDropdownProps {
-  isDark: boolean;
-  onProfile: () => void;
-  onSettings: () => void;
-  onToggleTheme: () => void;
-  onLogout: () => void;
-  collapsed: boolean;
-}
+import type { UserMenuDropdownProps } from '@/lib/types/components/molecular';
 
 export function UserMenuDropdown({
   isDark,
@@ -38,10 +30,7 @@ export function UserMenuDropdown({
         {!collapsed && <span className="truncate"> Settings </span>}
       </button>
       <button
-        onClick={() => {
-          console.log('theme toggle clicked');
-          onToggleTheme();
-        }}
+        onClick={onToggleTheme}
         className={`w-full px-3 py-2 flex items-center gap-2 text-sm hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors ${
           collapsed ? 'justify-center' : ''
         }`}

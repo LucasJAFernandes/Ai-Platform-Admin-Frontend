@@ -3,17 +3,7 @@
 import { ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { NavSubItemList } from './navSubitemList';
-import type { NavTab, NavSubItem } from '@/lib/sidebar-config';
-
-interface NavTabItemProps {
-  tab: NavTab;
-  isSelected: boolean;
-  collapsed: boolean;
-  isOpen: boolean;
-  subItems?: NavSubItem[];
-  onClick: () => void;
-  onSubItemSelect: (item: NavSubItem) => void;
-}
+import type { NavTabItemProps } from '@/lib/types/components/molecular';
 
 export function NavTabItem({
   tab,

@@ -6,17 +6,7 @@ import { cn } from '@/lib/utils';
 import { UserAvatar } from '@/components/atoms/sidebar/userAvatar';
 import { UserMenuDropdown } from './userMenuDropdown';
 import { useClickOutside } from '@/hooks/use-click-outside';
-
-interface UserMenuSectionProps {
-  collapsed: boolean;
-  userName: string;
-  userEmail: string;
-  isDark: boolean;
-  onProfile: () => void;
-  onSettings: () => void;
-  onToggleTheme: () => void;
-  onLogout: () => void;
-}
+import type { UserMenuSectionProps } from '@/lib/types/components/molecular';
 
 function getInitials(name: string) {
   return name

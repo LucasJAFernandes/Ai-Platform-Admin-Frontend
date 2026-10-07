@@ -2,19 +2,11 @@ import { Download } from 'lucide-react';
 import { Button } from '@/components/atoms/button';
 import { Badge } from '@/components/atoms/badge';
 import { formatDate } from '@/lib/utils';
-import type { Invoice } from '@/lib/types/billing.types';
-
-interface StatsCardsProps {
-  filteredInvoices: Invoice[];
-  statusConfig: Record<
-    string,
-    { color: string; bgColor: string; icon: React.ElementType; label: string }
-  >;
-}
+import type { RecentInvoicesProps } from '@/lib/types/components/organisms';
 export function RecentInvoices({
   filteredInvoices,
   statusConfig,
-}: StatsCardsProps) {
+}: RecentInvoicesProps) {
   return (
     <div className="space-y-3 max-h-[400px] overflow-y-auto pr-2">
       {filteredInvoices.slice(0, 10).map((invoice) => {

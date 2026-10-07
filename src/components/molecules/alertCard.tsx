@@ -3,12 +3,7 @@
 import { CardContent } from '@/components/atoms/card';
 import { cn } from '@/lib/utils';
 import { CheckCircle, AlertTriangle, XCircle } from 'lucide-react';
-
-interface CardAlertProps {
-  overallStatus: 'operational' | 'degraded' | 'outage';
-  operationalCount: number;
-  totalServices: number;
-}
+import type { AlertCardProps } from '@/lib/types/components/molecular';
 
 const statusConfig: Record<
   string,
@@ -38,7 +33,7 @@ export function CardAlert({
   overallStatus,
   operationalCount,
   totalServices,
-}: CardAlertProps) {
+}: AlertCardProps) {
   return (
     <div className="bg-zinc-200 rounded-xl dark:bg-zinc-800 shadow-sm hover:shadow-md border border-gray-200 dark:border-zinc-700 hover:border-gray-300 transition-all duration-300 mb-4">
       <CardContent className="pt-4">

@@ -3,19 +3,7 @@
 import { CardContent } from '@/components/atoms/card';
 import { BarChart } from '@mui/x-charts/BarChart';
 import useMediaQuery from '@mui/material/useMediaQuery';
-
-interface RankingItem {
-  name: string;
-  value: number;
-}
-
-interface UsageRankingChartProps {
-  title: string;
-  data: RankingItem[];
-  color?: string;
-  valuePrefix?: string;
-  valueSuffix?: string;
-}
+import type { UsageRankingChartProps } from '@/lib/types/components/organisms';
 
 export function UsageRankingChart({
   title,
@@ -24,9 +12,9 @@ export function UsageRankingChart({
   valuePrefix = '',
   valueSuffix = '',
 }: UsageRankingChartProps) {
+  const isMobile = useMediaQuery('(max-width: 639px)', { noSsr: true });
   if (data.length === 0) return null;
 
-  const isMobile = useMediaQuery('(max-width: 639px)', { noSsr: true });
   const chartData = data.slice(0, 8).map((d) => ({
     name: d.name.length > (isMobile ? 12 : 18)
       ? `${d.name.slice(0, isMobile ? 10 : 16)}…`

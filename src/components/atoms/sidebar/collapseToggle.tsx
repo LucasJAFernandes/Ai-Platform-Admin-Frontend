@@ -2,11 +2,7 @@
 
 import { Button } from '@/components/atoms/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-
-interface CollapseToggleProps {
-  collapsed: boolean;
-  onToggle: () => void;
-}
+import type { CollapseToggleProps } from '@/lib/types/components/atomic';
 
 export function CollapseToggle({ collapsed, onToggle }: CollapseToggleProps) {
   if (collapsed) {

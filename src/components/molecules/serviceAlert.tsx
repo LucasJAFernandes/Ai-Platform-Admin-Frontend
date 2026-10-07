@@ -3,13 +3,7 @@
 import { CardContent, CardHeader, CardTitle } from '@/components/atoms/card';
 import { Badge } from '@/components/atoms/badge';
 import { RefreshCw, Clock } from 'lucide-react';
-import type { DisplayIncident, ServiceAlert } from '@/lib/types/healty.types';
-
-interface IncidentListProps {
-  loading: boolean;
-  displayIncidents: DisplayIncident[];
-  alerts?: ServiceAlert[] | null;
-}
+import type { ServiceAlertListProps } from '@/lib/types/components/molecular';
 
 const incidentStatusConfig: Record<string, { color: string; label: string }> = {
   investigating: { color: 'text-yellow-500', label: 'Investigating' },
@@ -36,7 +30,7 @@ export function IncidentList({
   loading,
   displayIncidents,
   alerts,
-}: IncidentListProps) {
+}: ServiceAlertListProps) {
   const unacknowledgedCount = alerts
     ? alerts.filter((a) => !a.is_acknowledged).length
     : 0;

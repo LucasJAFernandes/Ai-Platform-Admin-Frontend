@@ -9,17 +9,10 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/atoms/popover';
+import type { DateRangePickerProps } from '@/lib/types/components/atomic';
 
-export interface DateRange {
-  from: Date;
-  to: Date;
-}
-
-interface DateRangePickerProps {
-  value: DateRange;
-  onChange: (range: DateRange) => void;
-  className?: string;
-}
+export type { DateRange, DateRangePickerProps } from '@/lib/types/components/atomic';
+export { dateRangeToPeriodDays, defaultDateRange } from '@/lib/types/components/atomic';
 
 const PRESETS = [
   { label: '7 days', days: 7 },
@@ -159,13 +152,3 @@ export function DateRangePicker({
   );
 }
 
-export function dateRangeToPeriodDays(range: DateRange): number {
-  const ms = range.to.getTime() - range.from.getTime();
-  return Math.max(1, Math.ceil(ms / (1000 * 60 * 60 * 24)));
-}
-
-export function defaultDateRange(days = 30): DateRange {
-  const to = new Date();
-  const from = subDays(to, days);
-  return { from, to };
-}

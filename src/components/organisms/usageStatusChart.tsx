@@ -10,12 +10,7 @@ import {
   Legend,
 } from 'recharts';
 
-interface UsageStatusChartProps {
-  completed: number;
-  failed: number;
-  running: number;
-  cancelled: number;
-}
+import type { UsageStatusChartProps } from '@/lib/types/components/organisms';
 
 const STATUS_COLORS = [
   { name: 'Completed', color: '#22c55e' },

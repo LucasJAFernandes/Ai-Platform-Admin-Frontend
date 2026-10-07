@@ -1,30 +1,8 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { type Icon as LucideIcon } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-
-interface Stat {
-  label: string;
-  linked?: string;
-  value: string | number;
-  icon?: LucideIcon;
-  color?: string;
-  iconColor?: string;
-  subLabel?: React.ReactNode;
-  extraInfo?: React.ReactNode;
-}
-
-interface StatsCardsProps {
-  stats: Stat[];
-  variant?: 'horizontal' | 'centered' | 'dot';
-  className?: string;
-  gridClassName?: string;
-  cardClassName?: string;
-  iconClassName?: string;
-  labelClassName?: string;
-  valueClassName?: string;
-}
+import type { StatusCardsProps } from '@/lib/types/components/molecular';
 
 export function StatsCards({
   stats,
@@ -35,7 +13,7 @@ export function StatsCards({
   iconClassName,
   labelClassName,
   valueClassName,
-}: StatsCardsProps) {
+}: StatusCardsProps) {
   const router = useRouter();
   const count = stats.length;
 

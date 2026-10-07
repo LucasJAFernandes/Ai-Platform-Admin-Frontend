@@ -1,3 +1,9 @@
+import type { AlertSeverity } from '@/lib/types/common.types';
+import type { ElementType } from 'react';
+import type { HealthSummary, ByStatus } from '@/lib/types/organization.types';
+
+export type { AlertSeverity } from '@/lib/types/common.types';
+
 export type ServiceCategory = 'ai' | 'core' | 'pipeline' | 'platform';
 export type ServiceHealthStatus = 'healthy' | 'degraded' | 'unhealthy';
 
@@ -12,8 +18,27 @@ export interface ServiceStatus {
   last_check_at: string;
 }
 
-export type AlertSeverity =
-  'critical' | 'high' | 'major' | 'medium' | 'minor' | 'low' | 'maintenance';
+export interface DisplayService {
+  name: string;
+  status: 'operational' | 'degraded' | 'outage';
+  latency: number;
+  uptime: number;
+  lastCheck: string;
+  icon: ElementType;
+}
+
+export interface ServiceStatusProps {
+  loading: boolean;
+  displayServices: DisplayService[] | null;
+}
+
+export interface HealthSummaryChartProps {
+  data?: HealthSummary;
+}
+
+export interface TenantStatusChartProps {
+  data?: ByStatus;
+}
 
 export type AlertType =
   'incident' | 'resolution' | 'recovery' | 'warning' | 'info';

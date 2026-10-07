@@ -1,10 +1,16 @@
-import * as React from 'react';
+import React, { type HTMLAttributes } from 'react';
 
-type DivProps = React.HTMLAttributes<HTMLDivElement>;
+export interface CardProps extends HTMLAttributes<HTMLElement> {
+  as?: 'div' | 'section' | 'article';
+}
 
-export function Card({ className, ...props }: DivProps) {
+type CardSectionProps = HTMLAttributes<HTMLDivElement>;
+
+type CardTitleProps = HTMLAttributes<HTMLHeadingElement>;
+
+export function Card({ as: Component = 'div', className, ...props }: CardProps) {
   return (
-    <div
+    <Component
       className={[
         'rounded-lg border',
         'border-white/20 dark:border-zinc-800/40',
@@ -18,22 +24,22 @@ export function Card({ className, ...props }: DivProps) {
   );
 }
 
-export function CardHeader({ className, ...props }: DivProps) {
+export function CardHeader({ className, ...props }: CardSectionProps) {
   return (
     <div className={['p-4', className].filter(Boolean).join(' ')} {...props} />
   );
 }
 
-export function CardTitle({ className, ...props }: DivProps) {
+export function CardTitle({ className, ...props }: CardTitleProps) {
   return (
-    <div
+    <h3
       className={['text-sm font-semibold', className].filter(Boolean).join(' ')}
       {...props}
     />
   );
 }
 
-export function CardDescription({ className, ...props }: DivProps) {
+export function CardDescription({ className, ...props }: CardSectionProps) {
   return (
     <div
       className={['text-xs text-muted-foreground', className]
@@ -44,7 +50,7 @@ export function CardDescription({ className, ...props }: DivProps) {
   );
 }
 
-export function CardContent({ className, ...props }: DivProps) {
+export function CardContent({ className, ...props }: CardSectionProps) {
   return (
     <div
       className={['p-4 pt-0', className].filter(Boolean).join(' ')}
@@ -53,7 +59,7 @@ export function CardContent({ className, ...props }: DivProps) {
   );
 }
 
-export function CardFooter({ className, ...props }: DivProps) {
+export function CardFooter({ className, ...props }: CardSectionProps) {
   return (
     <div
       className={['p-4 pt-0', className].filter(Boolean).join(' ')}
